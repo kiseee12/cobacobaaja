@@ -1,0 +1,58 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+a {
+    color: #f44336;
+    margin-left: 10px;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Menghasilkan efek bulat */
+    object-fit: cover; /* Menyembunyikan bagian yang tidak muat */
+}

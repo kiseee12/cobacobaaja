@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <h1>Portfolio</h1>
+
+    <form action="{{ url_for('add_portfolio') }}" method="post" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+
+      <label for="university">University:</label>
+      <input type="text" id="university" name="university" required />
+
+      <label for="major">Major:</label>
+      <input type="text" id="major" name="major" required />
+
+      <label for="skills">Skills:</label>
+      <textarea id="skills" name="skills" required></textarea>
+
+      <label for="file">Profile Image:</label>
+      <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required />
+
+      <button type="submit">Add Portfolio</button>
+    </form>
+
+    <ul>
+      {% for portfolio in portfolios %}
+      <li>
+        <div class="profile-image">
+          {% if portfolio[3] %}
+          <img
+            src="{{ url_for('static', filename='uploads/' + portfolio[3]) }}"
+            alt="Profile Image"
+          />
+          {% else %}
+          <!-- Default image or placeholder if no image -->
+          <img src="{{ url_for('static', filename='placeholder.png') }}" alt="Profile Image" />
+          {% endif %}
+        </div>
+        <p>{{ portfolio[1] }}</p>
+        <p>{{ portfolio[2] }}</p>
+        <p>{{ portfolio[4] }}</p>
+        <!-- University -->
+        <p>{{ portfolio[5] }}</p>
+        <!-- Major -->
+        <p>{{ portfolio[6] }}</p>
+        <!-- Skills -->
+
+        <form action="{{ url_for('delete_portfolio', id=portfolio[0]) }}" method="post">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

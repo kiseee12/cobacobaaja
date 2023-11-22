@@ -10,10 +10,10 @@ app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
 
 # Konfigurasi koneksi database
 db_config = {
-    'host': 'sql-srv.mysql.database.azure.com',
-    'user': 'adminkelompok10',
-    'password': '4dm1nKelompok10',
-    'database': 'db_kelompok10', 
+    'host': 'localhost',
+    'user': '',
+    'password': '',
+    'database': '', 
 }
 
 def get_db_connection():
